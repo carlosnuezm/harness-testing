@@ -39,7 +39,7 @@ pipeline:
                   identifier: Run_3
                   spec:
                     shell: Sh
-                    command: docker run -it --rm testing:1 printenv
+                    command: docker run --rm testing:1 printenv
           platform:
             os: Linux
             arch: Amd64
