@@ -27,14 +27,16 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  type: BuildAndPushDockerRegistry
-                  name: BuildAndPushDockerRegistry_1
-                  identifier: BuildAndPushDockerRegistry_1
+                  type: BuildAndPushECR
+                  name: BuildAndPushECR_1
+                  identifier: BuildAndPushECR_1
                   spec:
-                    connectorRef: account.harnessImage
-                    repo: carlangasds/web
+                    connectorRef: awsconnector
+                    region: us-west-2
+                    account: "077957416427"
+                    imageName: testing
                     tags:
-                      - "1.2"
+                      - "1.1"
           platform:
             os: Linux
             arch: Amd64
