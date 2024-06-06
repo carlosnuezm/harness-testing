@@ -1,0 +1,46 @@
+pipeline:
+  identifier: Build_carlosnuezm_harness_testing_1717642707010
+  name: Build harness-testing
+  orgIdentifier: default
+  projectIdentifier: testing
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github_OAuth_1708482366799
+        repoName: carlosnuezm/harness-testing
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          caching:
+            enabled: true
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: dockerbuild
+                  name: docker_build
+                  spec:
+                    caching: true
+                    connectorRef: <+input>
+                    repo: hello/world
+                    tags:
+                      - latest
+                  timeout: ""
+                  type: BuildAndPushDockerRegistry
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Docker
+        type: CI
