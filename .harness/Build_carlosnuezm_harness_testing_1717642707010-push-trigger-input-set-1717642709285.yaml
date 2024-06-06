@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_carlosnuezm_harness_testing_1717642707010-push-trigger-input-set
+  identifier: Build_carlosnuezm_harness_testing_1717642707010pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: testing
+  pipeline:
+    identifier: Build_carlosnuezm_harness_testing_1717642707010
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
